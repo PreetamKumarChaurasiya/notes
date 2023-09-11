@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="en" style="background: white;">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta charset="utf-8"/>
+    <title>Web Programming Notes</title>
+
+    <meta name="description" content="Large &amp; Small"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+
+    <!-- text fonts -->
+    <link rel="stylesheet" href="assets/css/fonts.googleapis.com.css"/>
+
+    <!-- ace styles -->
+    <link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style"/>
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet"/>
+    <![endif]-->
+    <link rel="stylesheet" href="assets/css/ace-skins.min.css"/>
+    <link rel="stylesheet" href="assets/css/ace-rtl.min.css"/>
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="assets/css/ace-ie.min.css"/>
+    <![endif]-->
+
+    <!-- ace settings handler -->
+    <script src="assets/js/ace-extra.min.js"></script>
+
+    <!--[if lte IE 8]>
+    <script src="assets/js/html5shiv.min.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+        .bs-wizard {
+            margin-top: 40px;
+        }
+
+        /*Form Wizard*/
+        .bs-wizard {
+            border-bottom: solid 1px #438EB9;
+            padding: 0 0 10px 0;
+        }
+
+        .bs-wizard > .bs-wizard-step {
+            padding: 0;
+            position: relative;
+        }
+
+        .bs-wizard > .bs-wizard-step + .bs-wizard-step {
+        }
+
+        .bs-wizard > .bs-wizard-step .bs-wizard-stepnum {
+            color: #595959;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .bs-wizard > .bs-wizard-step .bs-wizard-info {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .bs-wizard > .bs-wizard-step > .bs-wizard-dot {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            display: block;
+            background: #438EB9;
+            top: 45px;
+            left: 50%;
+            margin-top: -15px;
+            margin-left: -15px;
+            border-radius: 50%;
+        }
+
+        .bs-wizard > .bs-wizard-step > .bs-wizard-dot:after {
+            content: ' ';
+            width: 14px;
+            height: 14px;
+            background: #FFFFFF;
+            border-radius: 50px;
+            position: absolute;
+            top: 8px;
+            left: 8px;
+        }
+
+        .bs-wizard > .bs-wizard-step > .progress {
+            position: relative;
+            border-radius: 0px;
+            height: 5px;
+            box-shadow: none;
+            margin: 20px 0;
+        }
+
+        .bs-wizard > .bs-wizard-step > .progress > .progress-bar {
+            width: 0px;
+            box-shadow: none;
+            background: #438EB9;
+        }
+
+        .bs-wizard > .bs-wizard-step.complete > .progress > .progress-bar {
+            width: 100%;
+        }
+
+        .bs-wizard > .bs-wizard-step.active > .progress > .progress-bar {
+            width: 50%;
+        }
+
+        .bs-wizard > .bs-wizard-step:first-child.active > .progress > .progress-bar {
+            width: 0%;
+        }
+
+        .bs-wizard > .bs-wizard-step:last-child.active > .progress > .progress-bar {
+            width: 30%;
+        }
+
+        .bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot {
+            background-color: #f5f5f5;
+        }
+
+        .bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot:after {
+            opacity: 0;
+        }
+
+        .bs-wizard > .bs-wizard-step:first-child > .progress {
+            left: 50%;
+            width: 50%;
+        }
+
+        .bs-wizard > .bs-wizard-step:last-child > .progress {
+            width: 50%;
+        }
+
+        .bs-wizard > .bs-wizard-step.disabled a.bs-wizard-dot {
+            pointer-events: none;
+        }
+
+        /*END Form Wizard*/
+    </style>
+</head>
+
+<body class="no-skin">
+<!--<div class="main-content" style="background: white;">-->
+    <!--<div class="main-content-inner">-->
+        <!--<div class="row bs-wizard" style="border-bottom:0;">-->
+
+            <!--<div class="col-xs-3 bs-wizard-step complete">-->
+                <!--<div class="text-center bs-wizard-stepnum">Chapter 1</div>-->
+                <!--<div class="progress">-->
+                    <!--<div class="progress-bar"></div>-->
+                <!--</div>-->
+                <!--<a href="#" class="bs-wizard-dot"></a>-->
+            <!--</div>-->
+
+            <!--<div class="col-xs-3 bs-wizard-step complete">&lt;!&ndash; complete &ndash;&gt;-->
+                <!--<div class="text-center bs-wizard-stepnum">Chapter 2</div>-->
+                <!--<div class="progress">-->
+                    <!--<div class="progress-bar"></div>-->
+                <!--</div>-->
+                <!--<a href="#" class="bs-wizard-dot"></a>-->
+            <!--</div>-->
+
+            <!--<div class="col-xs-3 bs-wizard-step active">&lt;!&ndash; complete &ndash;&gt;-->
+                <!--<div class="text-center bs-wizard-stepnum">Chapter 3</div>-->
+                <!--<div class="progress">-->
+                    <!--<div class="progress-bar"></div>-->
+                <!--</div>-->
+                <!--<a href="#" class="bs-wizard-dot"></a>-->
+            <!--</div>-->
+
+            <!--<div class="col-xs-3 bs-wizard-step">&lt;!&ndash; active &ndash;&gt;-->
+                <!--<div class="text-center bs-wizard-stepnum">Chapter 4</div>-->
+                <!--<div class="progress">-->
+                    <!--<div class="progress-bar"></div>-->
+                <!--</div>-->
+                <!--<a href="#" class="bs-wizard-dot"></a>-->
+            <!--</div>-->
+
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<div class="row">
+    <div class="col-xs-12">
+        <!-- PAGE CONTENT BEGINS -->
+        <div class="row">
+            <div class="col-xs-12" style="background: white;">
+                <table id="simple-table" class="table table-bordered table-hover table-responsive">
+                    <thead>
+                    <tr>
+                        <th>BCA Notes </th>
+                      
+                        <th>PDF</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                    <tr>
+                        <td>Subject </td>
+                      
+                        <td><a target="_blank" href="web_programming/pdfs/webprog_top.pdf">View PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chapter 1. PC SOFTWARE</td>
+                        
+                        <td><a target="_blanks" href="web_programming/pdfs/chp01.pdf">View PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chapter 2. COMPUTER ORGANIZATION</td>
+                        
+                        <td><a target="_blanks" href="web_programming/pdfs/chp02.pdf">View PDF</a></td>
+                    </tr>
+                        <td>Chapter 3. PROGRAMMING PRINCIPLES & C LANGUAGE</td>
+                        
+                        <td><a target="_blanks" href="web_programming/pdfs/chp03.pdf">View PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chapter 4. FUNDAMENTAL OF ITs</td>
+                        
+                        <td><a target="_blanks" href="web_programming/pdfs/chp04.pdf">View PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chapter 5.OBJECT MODELING & C++ PROGRAMMING</td>
+                        
+                        <td><a target="_blanks" href="web_programming/pdfs/chp05.pdf">View PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chapter 6. SYSTEM ANALYSIS AND
+DESIGN</td>
+                       
+                        <td><a target="_blanks" href="web_programming/pdfs/chp06.pdf">View PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chapter 7. DATA AND FILE STRUCTURE
+USING C &C++</td>
+                        
+                        <td><a target="_blanks" href="web_programming/pdfs/chp07.pdf">View PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chapter 8. DISCRETE MATHEMATICS</td>
+                        
+                        <td><a target="_blanks" href="web_programming/pdfs/chp08.pdf">View PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chapter 9. COMPUTER BASED NUMERICAL &
+STATISTICAL TECHNIQUES</td>
+                        
+                        <td><a target="_blanks" href="web_programming/pdfs/chp09.pdf">View PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chapter 10.SOFTWARE ENGINEERING</td>
+                        
+                        <td><a target="_blanks" href="web_programming/pdfs/chp10.pdf">View PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chapter 11. PRINCIPLES OF OPERATING
+SYSTEM</td>
+                       
+                        <td><a target="_blanks" href="web_programming/pdfs/chp11.pdf">View PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chapter 12. JavaScript 1: JAVA PROGRAMMING</td>
+                        
+                        <td><a target="_blanks" href="web_programming/pdfs/chp12.pdf">View PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chapter 13.  JavaScript 2: DESIGN & ANALYSIS OF
+ALGORITHM </td>
+                        
+                        <td><a target="_blanks" href="web_programming/pdfs/chp13.pdf">View PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chapter 14. JavaScript 3: DATA BASE MANAGEMENT
+SYSTEM
+</td>
+                        
+                        <td><a target="_blanks" href="web_programming/pdfs/chp14.pdf">View PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chapter 15. JavaScript 4: OPTIMIZATION TECHNIQUES</td>
+                        
+                        <td><a target="_blanks" href="web_programming/pdfs/chp15.pdf">View PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chapter 16. COMPUTER GRAPHICS &
+ANIMATION</td>
+                       
+                        <td><a target="_blanks" href="web_programming/pdfs/chp16.pdf">View PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chapter 17. WEB DESIGN </td>
+                       
+                        <td><a target="_blanks" href="web_programming/pdfs/chp17.pdf">View PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chapter 18. DATA MINING</td>
+                        
+                        <td><a target="_blanks" href="web_programming/pdfs/chp18.pdf">View PDF</a></td>
+                    </tr>
+<tr>
+                        <td>Chapter 19. JavaScript 3: .NET FRAMEWORK AND C#
+</td>
+                        
+                        <td><a target="_blanks" href="web_programming/pdfs/chp14.pdf">View PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chapter 20. JavaScript 4: DATA COMMUNICATION &
+COMPUTER NETWORKS</td>
+                        
+                        <td><a target="_blanks" href="web_programming/pdfs/chp15.pdf">View PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chapter 21. E-COMMERCE </td>
+                       
+                        <td><a target="_blanks" href="web_programming/pdfs/chp16.pdf">View PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chapter 22. MULTIMEDIA SYSTEM </td>
+                       
+                        <td><a target="_blanks" href="web_programming/pdfs/chp17.pdf">View PDF</a></td>
+                    </tr>
+                   
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div><!-- /.row -->
+</div>
+</body>
+</html>
